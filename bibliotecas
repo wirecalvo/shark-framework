@@ -5,3 +5,5 @@ from datetime import datetime
 import os
 import hashlib
 import requests
+import re
+import whois
