@@ -27,11 +27,7 @@ Hello friend, escolha uma das opçoes abaixo
 | [0]Sair do progama                        |
 ---------------------------------------------
 [ψ]Sua opção ==> ''')
-	if menu != '1' or '2' or '3' or '4' or '5' or '6' or '7' or '8' or '9' or '!' or '0':
-		print('[-]Insira uma opção valida!')
-		time.sleep(1.5)
-		m() 
-
+	 
 	if menu == '0':
 		print('[-]Você escolheu sair do progama')
 		sair()
