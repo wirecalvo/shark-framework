@@ -7,6 +7,14 @@ import hashlib
 import requests
 import re
 import whois
+import json
+
+preto = "\033[1;30m"
+vermelho = "\033[1;31m"
+verde = "\033[1;32m"
+amarelo = "\033[1;33m"
+azul = "\033[1;34m"
+cyan = "\033[1;36m"
 
 def m():
 	menu = input('''
@@ -19,16 +27,19 @@ Hello friend, escolha uma das opçoes abaixo
 | [3]Brute force diretórios ==> Python      |
 | [4]Brute force subdomínios ==> Python     |
 | [5]Banner grabbing ==> Python             |                    
-| [6]Localizar IP ==> Python                |
-| [7]Brute force em ftp ==> Python          |
-| [8]Whois ==> Python                       |
-| [9]Proucurar exploits ==> Python          |                   
+| [6]Localizar IP ==> Python                |          
+| [7]Whois ==> Python                       |
+| [8]Proucurar exploits ==> Python          |                   
+| [9]Enumerar users wordpress ==> Python    |
 | [!]Avisos                                 |
+| [C]Contribuidores                         |
 | [0]Sair do progama                        |
 ---------------------------------------------
-[ψ]Sua opção ==> ''')
-	 
-	if menu == '0':
+shark@framework:~$ ''')
+	if menu != "1" and "2" and "3" and "4" and "5" and "6" and "7" and "8" and "9" and "!" and "C" and "0":
+		print("[!]Escolha uma opção válida!")
+		m()
+	elif menu == '0':
 		print('[-]Você escolheu sair do progama')
 		sair()
 
@@ -37,10 +48,12 @@ Hello friend, escolha uma das opçoes abaixo
 		time.sleep(1)
 		print('[-]Carregando...')
 		time.sleep(1.5)
+		os.system('clear')
 		portscanner()
 		print('\n')
 		print('[-]Voltando pro menu...')
-		time.sleep(2)
+		time.sleep(15)
+		os.system('clear')
 		m()
 
 	elif menu == '2':
@@ -48,10 +61,12 @@ Hello friend, escolha uma das opçoes abaixo
 		time.sleep(1)
 		print('[-]Carregando...')
 		time.sleep(1.5)
+		os.system('clear')
 		hashcracker()
 		print('\n')
 		print('[-]Voltando pro menu...')
-		time.sleep(2)
+		time.sleep(15)
+		os.system('clear')
 		m()
 
 	elif menu == '3':
@@ -59,10 +74,12 @@ Hello friend, escolha uma das opçoes abaixo
 		time.sleep(1)
 		print('[-]Carregando...')
 		time.sleep(1.5)
+		os.system('clear')
 		bfdir()
 		print('\n')
 		print('[-]Voltando pro menu...')
-		time.sleep(2)
+		time.sleep(15)
+		os.system('clear')
 		m()
 
 	elif menu == '4':
@@ -70,10 +87,12 @@ Hello friend, escolha uma das opçoes abaixo
 		time.sleep(1)
 		print('[-]Carregando...')
 		time.sleep(1.5)
+		os.system('clear')
 		sub()
 		print('\n')
 		print('[-]Voltando pro menu...')
-		time.sleep(2)
+		time.sleep(15)
+		os.system('clear')
 		m()
 
 	elif menu == '5':
@@ -81,10 +100,12 @@ Hello friend, escolha uma das opçoes abaixo
 		time.sleep(1)
 		print('[-]Carregando...')
 		time.sleep(1.5)
+		os.system('clear')
 		bg()
 		print('\n')
 		print('[-]Voltando pro menu...')
-		time.sleep(2)
+		time.sleep(15)
+		os.system('clear')
 		m()
 
 	elif menu == '6':
@@ -92,42 +113,50 @@ Hello friend, escolha uma das opçoes abaixo
 		time.sleep(1)
 		print('[-]Carregando...')
 		time.sleep(1.5)
+		os.system('clear')
 		localip()
 		print('\n')
 		print('[-]Voltando pro menu...')
-		time.sleep(2)
+		time.sleep(15)
+		os.system('clear')
 		m()
 
 	elif menu == '7':
-		print('[-]Você escolheu usar o brute force em ftp')
-		time.sleep(1)
-		print('[-]Carregando...')
-		time.sleep(1.5)
-		ftp()
-		print('\n')
-		print('[-]Voltando pro menu...')
-		time.sleep(2)
-		m()
-
-	elif menu == '8':
 		print('[-]Você escolheu usar o whois')
 		time.sleep(1)
 		print('[-]Carregando...')
 		time.sleep(1.5)
+		os.system('clear')
 		w()
 		print('[-]Voltando pro menu...')
-		time.sleep(2)
+		time.sleep(15)
+		os.system('clear')
 		m()
 
-	elif menu == '9':
+	elif menu == '8':
 		print('[-]Você escolheu usar o buscador de exploits')
 		time.sleep(1)
 		print('[-]Carregando...')
 		time.sleep(1.5)
+		os.system('clear')
 		e()
 		print('\n')
 		print('[-]Voltando pro menu...')
+		time.sleep(15)
+		os.system('clear')
+		m()
+
+	elif menu == '9':
+		print('[-]Você escolheu usar o Enumerador de usuários')
+		time.sleep(1)
+		print('[-]Carregando...')
+		time.sleep(15)
+		os.system('clear')
+		wd()
+		print('\n')
+		print('[-]Voltando pro menu...')
 		time.sleep(2)
+		os.system('clear')
 		m()
 
 	elif menu == '!':
@@ -138,6 +167,15 @@ Hello friend, escolha uma das opçoes abaixo
 		print('[-]Não use para fins ilegais!')
 		print('\n')
 		print('[-]Voltando pro menu...')
+		m()
+	elif menu == 'C':
+		print('Contribuidores com o projeto:')
+		time.sleep(2)
+		print('[-]Luizin   discord --> luizin#1706')
+		print('[-]ChaosHunter  discord --> mateusin#6060 ')
+		print('Obrigado por toda a ajuda! =)')
+		print('Discord para hackers e progamadores ==> https://discord.gg/8N9VGcAK')
+		print('[-]Voltando ao menu...')
 		m()
 
 def sair():
@@ -153,7 +191,7 @@ def portscanner():
 	x = now.hour
 	y = now.minute
 
-	print('''
+	print(vermelho, '''
    ████▀░░░░░░░░░░░░░░░░░▀████
    ███│░░░░░░░░░░░░░░░░░░░│███
    ██▌│░░░░░░░░░░░░░░░░░░░│▐██
@@ -173,24 +211,28 @@ def portscanner():
 	ip = input('[-]IP alvo ==> ')
 	print('---------------------------------------------')
 	print('[-]Realizando varredura em ==>', ip)
-	print('[-]Scan inicializado às:',x,':',y)
+	print('[-]Scan inicializado às: ',x,'-',y)
 	print('---------------------------------------------')
 	time.sleep(2)
 	print('================SharkScanner================')
+	try:
+		for porta in range(1, 65535):
+			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+			s1 = s.connect_ex((ip, porta))
+			if s1 == 0:
+				b = print('[>]Porta aberta ===>', porta)
+				s.close()
 
-	for porta in range(1, 65535):
-		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		s1 = s.connect_ex((ip, porta))
-		if s1 == 0:
-			b = print('[>]Porta aberta ===>', porta)
-			s.close()
+		time.sleep(2.5)
+		print('============================================')
+		print('[+]Scan finalizado')
 
-	time.sleep(2.5)
-	print('============================================')
-	print('[+]Scan finalizado')
+	except ConnectionRefusedError:
+		print("[-]Não foi possível se conectar ao servidor")
 
 def hashcracker():
 	time.sleep(2)
+	print('=======================================================================================================')
 	print('''
                  uuuuuuu
              uu$$$$$$$$$$$uu
@@ -223,49 +265,47 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
 	''')
 	print('=======================================================================================================')
 	time.sleep(2)
-	th = input('Tipo de hash => ')
-	h = input("Hash => ")
+	th = input(' [-]Tipo de hash => ')
 	time.sleep(1)
-	wl = input("Wordlist => ")
+	h = input(" [-]Hash => ")
+	time.sleep(1)
+	wl = input(" [-]Wordlist => ")
 	time.sleep(2)
-	os.system(['clear', 'cls'][os.name == 'nt'])
-	print('Agora deixe o trabalho duro com agente')
-	time.sleep(1.5)
-	print('''
-███████╗    ██╗  ██╗     █████╗     ██████╗     ██╗  ██╗            ██╗  ██╗     █████╗     ███████╗    ██╗  ██╗
-██╔════╝    ██║  ██║    ██╔══██╗    ██╔══██╗    ██║ ██╔╝            ██║  ██║    ██╔══██╗    ██╔════╝    ██║  ██║
-███████╗    ███████║    ███████║    ██████╔╝    █████╔╝             ███████║    ███████║    ███████╗    ███████║
-╚════██║    ██╔══██║    ██╔══██║    ██╔══██╗    ██╔═██╗             ██╔══██║    ██╔══██║    ╚════██║    ██╔══██║
-███████║    ██║  ██║    ██║  ██║    ██║  ██║    ██║  ██╗            ██║  ██║    ██║  ██║    ███████║    ██║  ██║
-╚══════╝    ╚═╝  ╚═╝    ╚═╝  ╚═╝    ╚═╝  ╚═╝    ╚═╝  ╚═╝            ╚═╝  ╚═╝    ╚═╝  ╚═╝    ╚══════╝    ╚═╝  ╚═╝
-                                                                                                                
-	''')
-	if th == "md5":
-		hashtype = hashlib.md5
-	elif th == "sha1":
-		hashtype = hashlib.sha1
-	elif th == "sha224":
-		hashtype = hashlib.sha224
-	elif th == "sha256":
-		hashtype = hashlib.sha256
-	elif th == "sha384":
-		hashtype = hashlib.sha384
-	elif th == "sha512":
-		hashtype = hashlib.sha512
 
-	print('Aceita uma fanta laranja?')
+	try:
+		wl = open(wl, "r")
+	except:
+		print(' [!]Arquivo não encontrado')
+		time.sleep(1)
+		print('Saindo do progama...')
+		sys.exit(1)
+
+	os.system(['clear', 'cls'][os.name == 'nt'])
+
+	if th == "md5":
+		hashtype=hashlib.md5
+	elif th == "sha1":
+		hashtype=hashlib.sha1
+	elif th == "sha224":
+		hashtype=hashlib.sha224
+	elif th == "sha256":
+		hashtype=hashlib.sha256
+	elif th == "sha384":
+		hashtype=hashlib.sha384
+	elif th == "sha512":
+		hashtype=hashlib.sha512
+
+	print('====================[-]SharKHash[-]====================')
+	time.sleep(1.5)
 
 	for palavra in wl:
 		hc = hashtype(palavra.strip().encode('utf-8')).hexdigest()
-		st = time.time()
 		time.sleep(2)
-		print("Testando senha ->", palavra)
+		print('[+]Testando senha ===>', palavra)
 		time.sleep(2)
 		if h == hc:
-			print('Senha quebrada:', palavra)
-			exit()
-		else:
-			print('Não achamos a senha, tente uma wordlist melhor')
+			print('Senha descriptografada ==>', palavra)
+			sys.exit(1)
 
 def bfdir():
 	print('''
@@ -305,17 +345,19 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
 	print('[+]Proucurando por diretórios em -->', url)
 	time.sleep(2.75)
 
-	for diretorio in ve:
-        	link = f"http://{url}/{diretorio}"
-        	r = requests.get(link)
-        	if r.status_code == 200:
-                	print('[-]', link, '==> 200')
-        	else:
-                	print('[-]', link, '==> 404 ou 403')
-
+	try:
+		for diretorio in ve:
+			link = f"http://{url}/{diretorio}"
+			r = requests.get(link)
+			if r.status_code == 200:
+				print('[-]', link, '==> 200')
+			else:
+				print('[-]', link, '==> 404 ou 403')
+	except:
+		print("[-]Não foi possível se conectar")
 
 def sub():
-	print('''
+	print(cyan, '''
           _,.-----.,_
        ,-~           ~-.
       ,^___           ___^.
@@ -354,10 +396,10 @@ def sub():
 	time.sleep(2.75)
 	print("===========================$===========================")
 	time.sleep(1.5)
-
-	for subdomain in subdom:
-		if subdomain != True:
-			link = f"http://{subdomain}.{dom}"
+	try:
+		for subdomain in subdom:
+			if subdomain != True:
+				link = f"http://{subdomain}.{dom}"
 
 			try:
 				requests.get(link)
@@ -365,10 +407,12 @@ def sub():
 				pass
 		else:
 			print('[-]Subdomínio encontrado ===>', link)
-	time.sleep(2)
-	print('===========================$===========================')
-	print('\n')
-	print('[$]Scan Encerrado[$]')
+		time.sleep(2)
+		print('===========================$===========================')
+		print('\n')
+		print('[$]Scan Encerrado[$]')
+	except:
+		print("[-]Não foi possível se conectar")
 
 def bg():
 	ip = input('[-]IP alvo ==> ')
@@ -382,13 +426,16 @@ def bg():
 |_.__/   \__, | |_|     \__,_| |_.__/ 
          |___/                        
 	''')
-	time.sleep(1.5)
-	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	s1 = s.connect((ip, int(porta)))
-	print('[-]Conectando em ==> ', ip, ':', porta)
-	time.sleep(1.75)
-	s2 = s.recv(1024)
-	print('[-]Banner ==> ', s2)
+	try:
+		time.sleep(1.5)
+		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		s1 = s.connect((ip, int(porta)))
+		print('[-]Conectando em ==> ', ip, ':', porta)
+		time.sleep(1.75)
+		s2 = s.recv(1024)
+		print('[-]Banner ==> ', s2)
+	except ConnectionRefusedError:
+		print("[-]Não foi possível se conectar ao servidor")
 
 def localip():
 	print('''
@@ -399,63 +446,27 @@ def localip():
 |___/ |_| |_|  \__,_| |_|    |_|\_\ |_| | .__/ 
                                         |_|   
 	''')
+	try:
+		ip = input('[-]IP alvo ==> ')
+		r = request = requests.get('http://ip-api.com/json/{}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query'.format(ip))
+		resposta = (r.json())
+		time.sleep(2)
+		print('[-]Trazendo informações de ==>', ip)
+		time.sleep(1.5)
+		print('=======================================================================')
+		print('[-]',ip)
+		print('[-]País ==>  {}'.format(resposta['country']))
+		print('[-]Estado ==>  {}'.format(resposta['regionName']))
+		print('[-]Cidade ==>  {}'.format(resposta['city']))
+		print('[-]CEP aproximado ==> {}'.format(resposta['zip']))
+		print('[-]Latitude ==> {}'.format(resposta['lat']))
+		print('[-]Longitude ==>  {}'.format(resposta['lon']))
+		print('[-]Organização ==>  {}'.format(resposta['org']))
+		print('[-]Fuso Horário ==> {}'.format(resposta['timezone']))
+		print('=======================================================================')
+	except:
+		print("[-]Não foi possível se conectar")
 
-	ip = input('[-]IP alvo ==> ')
-	r = request = requests.get('http://ip-api.com/json/{}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query'.format(ip))
-	resposta = (r.json())
-	time.sleep(2)
-	print('[-]Trazendo informações de ==>', ip)
-	time.sleep(1.5)
-
-	print('=======================================================================')
-	print('[-]',ip)
-	print('[-]País ==>  {}'.format(resposta['country']))
-	print('[-]Estado ==>  {}'.format(resposta['regionName']))
-	print('[-]Cidade ==>  {}'.format(resposta['city']))
-	print('[-]CEP aproximado ==> {}'.format(resposta['zip']))
-	print('[-]Latitude ==> {}'.format(resposta['lat']))
-	print('[-]Longitude ==>  {}'.format(resposta['lon']))
-	print('[-]Organização ==>  {}'.format(resposta['org']))
-	print('[-]Fuso Horário ==> {}'.format(resposta['timezone']))
-	print('=======================================================================')
-
-def ftp():
-	print('''
- ____    _____   _____   ____  
-/ ___|  |  ___| |_   _| |  _ \ 
-\___ \  | |_      | |   | |_) |                    [+]SFTP[+]
- ___) | |  _|     | |   |  __/      [-]progama para fazer brute force em ftp[-]
-|____/  |_|       |_|   |_|    
-	''')
-
-	time.sleep(2)
-	ip = input('[-]IP => ')
-	time.sleep(1.5)
-	user = input('[-]Usuário => ')
-	time.sleep(1.5)
-	wl = input('[-]Wordlist => ')
-	time.sleep(1.5)
-	file = open(wl, "r")
-	fileread = file.read()
-	senha = fileread.splitlines()
-
-	for s in senha:
-		print('===============================================')
-		print('[+]Testando com -> ', user, '-', s)
-		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		s.connect((ip, 21))
-		s.recv(1024)
-		s.send("USER"+user+"\r\n")
-		s.recv(1024)
-		s.send("PASS"+s+"\r\n")
-		resultado = s.recv(1024)
-		s.send("QUIT\r\n")
-
-		if re.search("230", resultado):
-			print('[-]Senha encontrada ===>', s)
-			break
-		else:
-			print('[-]Senha não encontrada')
 def w():
 	print('''
 	 
@@ -473,6 +484,7 @@ def w():
 	print(c.text)
 
 def e():
+	os.system('clear')
 	a = input('''
 ================================
 [+]Exploits[+]
@@ -489,8 +501,10 @@ def e():
 [10]Mac OS
 ================================
 [+]Sua opção ==> ''')
+	if menu != "1" and "2" and "3" and "4" and "5" and "6" and "7" and "8" and "9" and "10":
+		print("Escolha uma opção válida")
 
-	if a == '1':
+	elif a == '1':
 		print('[-]Buscando exploits CMS...')
 		time.sleep(2)
 		os.system("searchsploit CMS")
@@ -540,10 +554,40 @@ def e():
 		time.sleep(2)
 		os.system("searchsploit macos")
 
+def wd():
+	print('''
+ ___    ___   _ __    _   _   _ __ ___  
+/ __|  / _ \ | '_ \  | | | | | '_ ` _ \                       [-]SENUM[-]
+\__ \ |  __/ | | | | | |_| | | | | | | |      [+]Script para enumerar usuários do wordpress[+]
+|___/  \___| |_| |_|  \__,_| |_| |_| |_|
+	''')
 
-print('[-]Carregando...')
+	link = input("[-]Site alvo ==> ")
+	url = f"https://{link}/wp-json/wp/v2/users"
+	r = json.loads(requests.get(url).text)
+
+	try:
+		print("--------------------------------------")
+		print("Usuário ==> ", r[0]["name"])
+		print("Usuário ==> ", r[1]["name"])
+		print("Usuário ==> ", r[2]["name"])
+		print("Usuário ==> ", r[3]["name"])
+		print("Usuário ==> ", r[4]["name"])
+		print("Usuário ==> ", r[5]["name"])
+		print("Usuário ==> ", r[6]["name"])
+		print("Usuário ==> ", r[7]["name"])
+		print("Usuário ==> ", r[8]["name"])
+		print("Usuário ==> ", r[9]["name"])
+		print("Usuário ==> ", r[10]["name"])
+		print("--------------------------------------")
+	except IndexError:
+		print('--------------------------------------')
+		print("[+]Todos os usuários enumerados")
+
+os.system('clear')
+print(vermelho, '[-]Carregando...')
 time.sleep(2)
-print('''
+print(azul, '''
                      .ed"""" """$$$$be.
                    -"           ^""**$$$e.
                  ."                   '$$$c
@@ -580,3 +624,4 @@ print('''
 time.sleep(2)
 
 m()
+
